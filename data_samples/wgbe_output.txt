@@ -1,0 +1,1609 @@
+
+ BerkeleyGW version 4.0+git 0ef89a9-dirty by Brian Austin <baustin@lbl.gov> at 2023-10-04 20:42:36 +0000
+ Epsilon code, Complex version, run on 06-Mar-2026 at 17:08:57 -0600
+
+                                                                 ..o.          
+                                                                .oxxo.         
+                                                               .oxxxxo...      
+                                                               oxxxxxxo.       
+                                                              .oxxxxxxx.       
+                                                              .ooooooxxo..     
+                                                              .oooooooxo..     
+                                                              .oooooxxo...     
+                                                       .........oxooo......    
+                                                 ............................  
+                                             ................................. 
+                                          .................................... 
+           .          ..oo. ....  .................................oooxxxxxxxo.
+     .............oxxxx@ox@@@x@x.....................o...........ooooooooooxx. 
+    .o.........oox@x.oo........xxx@@............ooxxxxo..........ooooxxxxxoxo  
+    .x........x@xxo...............o@xxo........oxxx@@@xoooooooooooooooxxxo...  
+    .o......ox@@o..................oox@o.....ooxxx@xoooxxxxxxxoooooooooooo.... 
+    o..ooooo@@xoooo....ooo...........x@o.....ooxxxxo   .oxxxxxxxxxxooooooo.... 
+    . .oooo@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@....ooooox.     .oxx@@@@@xxoo........ 
+      .ooooxxxxxxxooooooxooooooooooooooxo...oooooxx.        ..ox@xxxoo.........
+      .ooooooxxxx@xoooooooooooooxxoooooooooooxxxxx.            .oxxooooooooxxo.
+     .oooooxxxxx@@@xxxxxxxxxxxxxxxxxxxxxxxxoxxxxo.                .oxxxxxxxxo. 
+   ....oooxxxxx@@@xo..oxxx@@@@@@xxxxoxxoooooooxx.                  .oxxxoo..   
+  .....ooxxxx@@xo.       ........    .ooooooooxxo                              
+  ..oooxxxx@@@o                       .oooooooxoo.                             
+  ....oxooxxxxx.                       .ooo..oooo.                             
+  .....o.ooxxxxxo.                     .oooooooxo.                             
+ ......ooooxxxxxxo.                     .ooooooxoo..                           
+........ooxxxxxxxo..                     .o....oxoo...                         
+.......ooooxxxxxxxo.                     ........oooo.                         
+.ooooooo..ooxxxxoooo.                    .........ooo...                       
+..oxo...ooooxxxoooo..                    .ooo......oooo...                     
+  .ooooo....o.                            .oxxxoo....ooo....                   
+    .oooooo...                              ...ooooo...ooo..                   
+       ...                                     .oo.......                      
+                                               ....ooo...                      
+                      __              __                                       
+ ______              [  |            [  |                 ._____  _          _ 
+|_   _               | |  _          | |                /  ___ | |        | |
+  | |_) | .---.  _. _.| | / |  .---.  | | .---.  _    _ / /    _|   /  / / 
+  |  __'./ /__\[ /`_| '' <  / /__\ | |/ /__\|   | | |   _____  /  / /  
+ _| |__| | __. | |   | |`  | ___. | || ___.  / /  .___| |    /  /   
+|_______/ .__./[_]  [__|  _] .__./[___].__./    /   .____./    /  /    
+                                                  / /                          
+                                                 /_/                           
+ --------------------------------------------------------------------------------
+ Please cite the main BerkeleyGW paper when using results from this calculation:
+
+ Jack Deslippe, Georgy Samsonidze, David A. Strubbe, Manish Jain, Marvin L.
+ Cohen, and Steven G. Louie, "BerkeleyGW: A Massively Parallel Computer Package
+ for the Calculation of the Quasiparticle and Optical Properties of Materials
+ and Nanostructures," Comput. Phys. Commun. 183, 1269 (2012)
+
+ Aditionally, PLEASE CITE ALL PAPERS REPORTED AT THE END OF THIS CALCULATION.
+ --------------------------------------------------------------------------------
+
+ Running MPI version (parallel)
+ Running with 1 MPI task(s)
+ Using OpenMP. Number of threads per MPI task: 16
+
+ Compilation flags:
+ - Compiler: PGI
+ - Para. flags: MPI, OMP
+ - Math  flags: USESCALAPACK, UNPACKED, USEFFTW3, HDF5
+ - Debug flags: 
+
+ Running with verbosity level 1 (default).
+
+ We will start a new calculation from scratch.
+
+ 
+ We`ll perform a uniform sampling of the full BZ.
+ 
+ Computing the static inverse dielectric matrix
+
+ We are using matrix communication scheme
+
+ We are using non-blocking cyclic communication scheme
+
+ Using block algorithm over valence bands
+
+ We are not communicating
+
+ We are using no truncation
+ Reading header of WFN.h5
+ Highest occupied band (unshifted grid) = 428
+ Valence max    (unshifted grid) = 6.208185 eV
+ Conduction min (unshifted grid) = 6.558149 eV
+ Middle energy  (unshifted grid) = 6.383167 eV
+ Fermi  energy  (unshifted grid) = 6.383167 eV
+
+ Reading header of WFNq.h5
+ Highest occupied band (shifted grid) = 428
+
+ Calculation parameters:
+ - Cutoff of the dielectric matrix (Ry): 8.00
+ - Total number of bands in the calculation: 6397
+ - Number of fully occupied valence bands: 428
+ - Number of partially occ. conduction bands: 0
+ - Monkhorst-Pack q-grid for epsilon(q): 1 1 1
+ 
+ Running with 1 valence pools
+ Number of conduction bands per processor: 5969
+ Number of valence bands per processor: 428
+
+ Memory available: 207818.1 MB per PE
+ Memory required for execution: 23883.9 MB per PE
+ Memory required for vcoul: 0.0 MB per PE
+
+ Valence block alogorithm info
+ Max memory allowed per valence block (Gb):    20.00
+ Memory for a single valence band (Gb):         2.12
+ Number of valence bands per block:               9
+
+ Number of electrons per unit cell (from ifmax) = 856.000000
+ Number of electrons per unit cell (from occupations) = 856.000000
+ Plasma Frequency = 1.214484 Ry
+
+ Reading using H5FD_MPIO_INDEPENDENT.
+ Using communication style:  1
+ 
+ Reading using H5FD_MPIO_INDEPENDENT.
+ Using communication style:  1
+ 
+ Initializing eps0mat.h5
+ - Screened Coulomb cutoff: 8.000 Ry
+ - Total number of bands: 6397
+ - Number of q-points: 1
+
+ Scissors parameters:
+ - Valence:    es =   0.0000 eV, e0 =   0.0000 eV, edel =   0.0000
+ - Conduction: es =   0.0000 eV, e0 =   0.0000 eV, edel =   0.0000
+
+ Q0 and |Q0| =  0.000000  0.000000  0.050000  0.010205
+
+ GPU acceleration is : ENABLED
+ 
+ Algorithms used:
+ - mtxel         : OPENACC_ALGO
+ - chi_summation : OPENACC_ALGO
+ 
+ You have a slightly shifted q0 vector and a semiconductor.
+ So, reading from WFNq.
+ Reading header of WFNq.h5
+ Highest occupied band (shifted grid) = 428
+ Reading using H5FD_MPIO_INDEPENDENT.
+ Using communication style:  1
+ 
+ Summary of the WFN files:
+ - Number of k-points in WFN: 1
+ - Number of k-points in WFNq: 1
+ - Number of k-points in the full BZ of WFN: 1
+
+================================================================================
+ 17:09:00   Dealing with q =  0.000000  0.000000  0.050000                 1 / 1
+================================================================================
+
+ This is the special q->0 point.
+ Rank of the polarizability matrix (nmtx): 11075
+ 
+ BLACS processor grid:   1 x   1; BLOCKSIZE =   32
+ 
+ Number of k-points in the irreducible BZ(q) (nrk): 1
+ 
+ ========================================================
+ == Start Building Polarizability Using:    48 Blocks. ==
+ ========================================================
+ 
+ Valence Block Number:     1 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:00.
+ [ 17:09:00 |   0% ] transition 1 / 9.
+ [ 17:09:01 |  11% ] transition 2 / 9.
+ [ 17:09:01 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:01 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:01 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:01 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:02 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:02 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:02 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:02.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:02.
+ [ 17:09:02 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:03.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     1
+ -----------------------------
+ 
+ 
+ Valence Block Number:     2 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:03.
+ [ 17:09:03 |   0% ] transition 1 / 9.
+ [ 17:09:04 |  11% ] transition 2 / 9.
+ [ 17:09:04 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:04 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:04 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:04 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:05 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:05 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:05 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:05.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:05.
+ [ 17:09:05 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:05.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     2
+ -----------------------------
+ 
+ 
+ Valence Block Number:     3 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:06.
+ [ 17:09:06 |   0% ] transition 1 / 9.
+ [ 17:09:07 |  11% ] transition 2 / 9.
+ [ 17:09:07 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:07 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:07 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:07 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:08 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:08 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:08 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:08.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:08.
+ [ 17:09:08 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:08.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     3
+ -----------------------------
+ 
+ 
+ Valence Block Number:     4 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:09.
+ [ 17:09:09 |   0% ] transition 1 / 9.
+ [ 17:09:10 |  11% ] transition 2 / 9.
+ [ 17:09:10 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:10 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:10 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:10 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:11 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:11 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:11 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:11.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:11.
+ [ 17:09:11 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:11.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     4
+ -----------------------------
+ 
+ 
+ Valence Block Number:     5 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:12.
+ [ 17:09:12 |   0% ] transition 1 / 9.
+ [ 17:09:13 |  11% ] transition 2 / 9.
+ [ 17:09:13 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:13 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:13 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:13 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:13 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:14 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:14 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:14.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:14.
+ [ 17:09:14 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:14.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     5
+ -----------------------------
+ 
+ 
+ Valence Block Number:     6 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:15.
+ [ 17:09:15 |   0% ] transition 1 / 9.
+ [ 17:09:16 |  11% ] transition 2 / 9.
+ [ 17:09:16 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:16 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:16 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:16 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:16 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:17 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:17 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:17.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:17.
+ [ 17:09:17 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:17.
+ Elapsed time: 0 s.
+ 
+ Done With Block Number:     6
+ -----------------------------
+ 
+ 
+ Valence Block Number:     7 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:18.
+ [ 17:09:18 |   0% ] transition 1 / 9.
+ [ 17:09:19 |  11% ] transition 2 / 9.
+ [ 17:09:19 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:19 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:19 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:19 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:19 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:20 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:20 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:20.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:20.
+ [ 17:09:20 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:20.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     7
+ -----------------------------
+ 
+ 
+ Valence Block Number:     8 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:21.
+ [ 17:09:21 |   0% ] transition 1 / 9.
+ [ 17:09:22 |  11% ] transition 2 / 9.
+ [ 17:09:22 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:22 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:22 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:22 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:22 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:23 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:23 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:23.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:23.
+ [ 17:09:23 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:23.
+ Elapsed time: 0 s.
+ 
+ Done With Block Number:     8
+ -----------------------------
+ 
+ 
+ Valence Block Number:     9 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:24.
+ [ 17:09:24 |   0% ] transition 1 / 9.
+ [ 17:09:25 |  11% ] transition 2 / 9.
+ [ 17:09:25 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:25 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:25 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:25 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:25 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:25 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:26 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:26.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:26.
+ [ 17:09:26 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:26.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:     9
+ -----------------------------
+ 
+ 
+ Valence Block Number:    10 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:27.
+ [ 17:09:27 |   0% ] transition 1 / 9.
+ [ 17:09:28 |  11% ] transition 2 / 9.
+ [ 17:09:28 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:28 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:28 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:28 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:28 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:28 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:29 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:29.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:29.
+ [ 17:09:29 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:29.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    10
+ -----------------------------
+ 
+ 
+ Valence Block Number:    11 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:30.
+ [ 17:09:30 |   0% ] transition 1 / 9.
+ [ 17:09:31 |  11% ] transition 2 / 9.
+ [ 17:09:31 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:31 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:31 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:31 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:31 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:31 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:32 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:32.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:32.
+ [ 17:09:32 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:32.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    11
+ -----------------------------
+ 
+ 
+ Valence Block Number:    12 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:33.
+ [ 17:09:33 |   0% ] transition 1 / 9.
+ [ 17:09:34 |  11% ] transition 2 / 9.
+ [ 17:09:34 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:34 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:34 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:34 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:34 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:34 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:35 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:35.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:35.
+ [ 17:09:35 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:35.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    12
+ -----------------------------
+ 
+ 
+ Valence Block Number:    13 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:36.
+ [ 17:09:36 |   0% ] transition 1 / 9.
+ [ 17:09:37 |  11% ] transition 2 / 9.
+ [ 17:09:37 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:37 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:37 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:37 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:37 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:37 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:38 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:38.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:38.
+ [ 17:09:38 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:38.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    13
+ -----------------------------
+ 
+ 
+ Valence Block Number:    14 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:39.
+ [ 17:09:39 |   0% ] transition 1 / 9.
+ [ 17:09:40 |  11% ] transition 2 / 9.
+ [ 17:09:40 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:40 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:40 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:40 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:40 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:40 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:40 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:41.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:41.
+ [ 17:09:41 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:41.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    14
+ -----------------------------
+ 
+ 
+ Valence Block Number:    15 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:42.
+ [ 17:09:42 |   0% ] transition 1 / 9.
+ [ 17:09:43 |  11% ] transition 2 / 9.
+ [ 17:09:43 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:43 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:43 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:43 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:43 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:43 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:43 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:44.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:44.
+ [ 17:09:44 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:44.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    15
+ -----------------------------
+ 
+ 
+ Valence Block Number:    16 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:45.
+ [ 17:09:45 |   0% ] transition 1 / 9.
+ [ 17:09:46 |  11% ] transition 2 / 9.
+ [ 17:09:46 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:46 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:46 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:46 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:46 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:46 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:46 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:47.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:47.
+ [ 17:09:47 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:47.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    16
+ -----------------------------
+ 
+ 
+ Valence Block Number:    17 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:48.
+ [ 17:09:48 |   0% ] transition 1 / 9.
+ [ 17:09:49 |  11% ] transition 2 / 9.
+ [ 17:09:49 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:49 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:49 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:49 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:49 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:49 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:49 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:50.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:50.
+ [ 17:09:50 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:50.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    17
+ -----------------------------
+ 
+ 
+ Valence Block Number:    18 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:51.
+ [ 17:09:51 |   0% ] transition 1 / 9.
+ [ 17:09:51 |  11% ] transition 2 / 9.
+ [ 17:09:52 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:52 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:52 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:52 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:52 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:52 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:52 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:52.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:53.
+ [ 17:09:53 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:53.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    18
+ -----------------------------
+ 
+ 
+ Valence Block Number:    19 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:54.
+ [ 17:09:54 |   0% ] transition 1 / 9.
+ [ 17:09:54 |  11% ] transition 2 / 9.
+ [ 17:09:55 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:55 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:55 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:55 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:55 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:55 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:55 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:55.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:55.
+ [ 17:09:56 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:56.
+ Elapsed time: 0 s.
+ 
+ Done With Block Number:    19
+ -----------------------------
+ 
+ 
+ Valence Block Number:    20 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:09:57.
+ [ 17:09:57 |   0% ] transition 1 / 9.
+ [ 17:09:57 |  11% ] transition 2 / 9.
+ [ 17:09:58 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:09:58 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:09:58 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:09:58 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:09:58 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:09:58 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:09:58 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:09:58.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:09:58.
+ [ 17:09:58 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:09:59.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    20
+ -----------------------------
+ 
+ 
+ Valence Block Number:    21 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:00.
+ [ 17:10:00 |   0% ] transition 1 / 9.
+ [ 17:10:00 |  11% ] transition 2 / 9.
+ [ 17:10:01 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:01 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:01 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:01 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:01 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:01 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:01 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:01.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:01.
+ [ 17:10:01 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:02.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    21
+ -----------------------------
+ 
+ 
+ Valence Block Number:    22 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:03.
+ [ 17:10:03 |   0% ] transition 1 / 9.
+ [ 17:10:03 |  11% ] transition 2 / 9.
+ [ 17:10:03 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:04 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:04 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:04 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:04 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:04 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:04 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:04.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:04.
+ [ 17:10:04 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:05.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    22
+ -----------------------------
+ 
+ 
+ Valence Block Number:    23 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:06.
+ [ 17:10:06 |   0% ] transition 1 / 9.
+ [ 17:10:06 |  11% ] transition 2 / 9.
+ [ 17:10:06 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:07 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:07 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:07 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:07 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:07 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:07 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:07.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:07.
+ [ 17:10:07 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:08.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    23
+ -----------------------------
+ 
+ 
+ Valence Block Number:    24 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:09.
+ [ 17:10:09 |   0% ] transition 1 / 9.
+ [ 17:10:09 |  11% ] transition 2 / 9.
+ [ 17:10:10 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:10 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:10 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:10 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:10 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:10 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:10 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:10.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:10.
+ [ 17:10:11 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:11.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    24
+ -----------------------------
+ 
+ 
+ Valence Block Number:    25 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:12.
+ [ 17:10:12 |   0% ] transition 1 / 9.
+ [ 17:10:12 |  11% ] transition 2 / 9.
+ [ 17:10:13 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:13 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:13 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:13 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:13 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:13 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:13 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:13.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:13.
+ [ 17:10:13 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:14.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    25
+ -----------------------------
+ 
+ 
+ Valence Block Number:    26 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:15.
+ [ 17:10:15 |   0% ] transition 1 / 9.
+ [ 17:10:15 |  11% ] transition 2 / 9.
+ [ 17:10:15 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:16 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:16 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:16 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:16 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:16 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:16 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:16.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:16.
+ [ 17:10:16 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:17.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    26
+ -----------------------------
+ 
+ 
+ Valence Block Number:    27 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:18.
+ [ 17:10:18 |   0% ] transition 1 / 9.
+ [ 17:10:18 |  11% ] transition 2 / 9.
+ [ 17:10:18 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:19 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:19 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:19 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:19 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:19 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:19 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:19.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:19.
+ [ 17:10:19 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:20.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    27
+ -----------------------------
+ 
+ 
+ Valence Block Number:    28 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:21.
+ [ 17:10:21 |   0% ] transition 1 / 9.
+ [ 17:10:21 |  11% ] transition 2 / 9.
+ [ 17:10:21 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:22 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:22 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:22 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:22 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:22 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:22 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:22.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:22.
+ [ 17:10:22 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:23.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    28
+ -----------------------------
+ 
+ 
+ Valence Block Number:    29 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:24.
+ [ 17:10:24 |   0% ] transition 1 / 9.
+ [ 17:10:24 |  11% ] transition 2 / 9.
+ [ 17:10:24 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:25 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:25 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:25 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:25 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:25 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:25 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:25.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:25.
+ [ 17:10:25 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:26.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    29
+ -----------------------------
+ 
+ 
+ Valence Block Number:    30 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:27.
+ [ 17:10:27 |   0% ] transition 1 / 9.
+ [ 17:10:27 |  11% ] transition 2 / 9.
+ [ 17:10:27 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:28 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:28 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:28 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:28 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:28 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:28 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:28.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:28.
+ [ 17:10:28 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:29.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    30
+ -----------------------------
+ 
+ 
+ Valence Block Number:    31 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:30.
+ [ 17:10:30 |   0% ] transition 1 / 9.
+ [ 17:10:30 |  11% ] transition 2 / 9.
+ [ 17:10:30 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:30 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:31 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:31 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:31 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:31 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:31 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:31.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:31.
+ [ 17:10:31 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:32.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    31
+ -----------------------------
+ 
+ 
+ Valence Block Number:    32 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:33.
+ [ 17:10:33 |   0% ] transition 1 / 9.
+ [ 17:10:33 |  11% ] transition 2 / 9.
+ [ 17:10:33 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:33 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:34 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:34 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:34 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:34 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:34 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:34.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:34.
+ [ 17:10:34 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:35.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    32
+ -----------------------------
+ 
+ 
+ Valence Block Number:    33 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:35.
+ [ 17:10:35 |   0% ] transition 1 / 9.
+ [ 17:10:36 |  11% ] transition 2 / 9.
+ [ 17:10:36 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:36 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:37 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:37 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:37 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:37 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:37 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:37.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:37.
+ [ 17:10:37 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:38.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    33
+ -----------------------------
+ 
+ 
+ Valence Block Number:    34 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:38.
+ [ 17:10:38 |   0% ] transition 1 / 9.
+ [ 17:10:39 |  11% ] transition 2 / 9.
+ [ 17:10:39 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:39 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:40 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:40 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:40 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:40 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:40 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:40.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:40.
+ [ 17:10:40 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:41.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    34
+ -----------------------------
+ 
+ 
+ Valence Block Number:    35 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:41.
+ [ 17:10:41 |   0% ] transition 1 / 9.
+ [ 17:10:42 |  11% ] transition 2 / 9.
+ [ 17:10:42 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:42 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:43 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:43 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:43 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:43 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:43 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:43.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:43.
+ [ 17:10:43 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:44.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    35
+ -----------------------------
+ 
+ 
+ Valence Block Number:    36 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:44.
+ [ 17:10:44 |   0% ] transition 1 / 9.
+ [ 17:10:45 |  11% ] transition 2 / 9.
+ [ 17:10:45 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:45 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:46 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:46 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:46 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:46 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:46 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:46.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:46.
+ [ 17:10:46 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:47.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    36
+ -----------------------------
+ 
+ 
+ Valence Block Number:    37 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:47.
+ [ 17:10:47 |   0% ] transition 1 / 9.
+ [ 17:10:48 |  11% ] transition 2 / 9.
+ [ 17:10:48 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:48 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:48 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:49 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:49 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:49 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:49 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:49.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:49.
+ [ 17:10:49 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:50.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    37
+ -----------------------------
+ 
+ 
+ Valence Block Number:    38 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:50.
+ [ 17:10:50 |   0% ] transition 1 / 9.
+ [ 17:10:51 |  11% ] transition 2 / 9.
+ [ 17:10:51 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:51 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:51 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:52 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:52 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:52 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:52 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:52.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:52.
+ [ 17:10:52 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:53.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    38
+ -----------------------------
+ 
+ 
+ Valence Block Number:    39 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:53.
+ [ 17:10:53 |   0% ] transition 1 / 9.
+ [ 17:10:54 |  11% ] transition 2 / 9.
+ [ 17:10:54 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:54 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:54 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:55 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:55 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:55 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:55 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:55.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:55.
+ [ 17:10:55 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:56.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    39
+ -----------------------------
+ 
+ 
+ Valence Block Number:    40 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:56.
+ [ 17:10:56 |   0% ] transition 1 / 9.
+ [ 17:10:57 |  11% ] transition 2 / 9.
+ [ 17:10:57 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:10:57 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:10:57 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:10:57 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:10:58 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:10:58 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:10:58 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:10:58.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:10:58.
+ [ 17:10:58 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:10:59.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    40
+ -----------------------------
+ 
+ 
+ Valence Block Number:    41 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:10:59.
+ [ 17:10:59 |   0% ] transition 1 / 9.
+ [ 17:11:00 |  11% ] transition 2 / 9.
+ [ 17:11:00 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:00 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:00 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:00 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:01 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:01 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:01 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:01.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:01.
+ [ 17:11:01 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:02.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    41
+ -----------------------------
+ 
+ 
+ Valence Block Number:    42 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:02.
+ [ 17:11:02 |   0% ] transition 1 / 9.
+ [ 17:11:03 |  11% ] transition 2 / 9.
+ [ 17:11:03 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:03 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:03 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:03 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:04 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:04 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:04 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:04.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:04.
+ [ 17:11:04 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:04.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    42
+ -----------------------------
+ 
+ 
+ Valence Block Number:    43 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:05.
+ [ 17:11:05 |   0% ] transition 1 / 9.
+ [ 17:11:06 |  11% ] transition 2 / 9.
+ [ 17:11:06 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:06 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:06 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:06 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:07 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:07 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:07 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:07.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:07.
+ [ 17:11:07 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:07.
+ Elapsed time: 0 s.
+ 
+ Done With Block Number:    43
+ -----------------------------
+ 
+ 
+ Valence Block Number:    44 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:08.
+ [ 17:11:08 |   0% ] transition 1 / 9.
+ [ 17:11:09 |  11% ] transition 2 / 9.
+ [ 17:11:09 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:09 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:09 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:09 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:10 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:10 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:10 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:10.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:10.
+ [ 17:11:10 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:10.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    44
+ -----------------------------
+ 
+ 
+ Valence Block Number:    45 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:11.
+ [ 17:11:11 |   0% ] transition 1 / 9.
+ [ 17:11:12 |  11% ] transition 2 / 9.
+ [ 17:11:12 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:12 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:12 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:12 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:12 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:13 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:13 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:13.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:13.
+ [ 17:11:13 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:13.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    45
+ -----------------------------
+ 
+ 
+ Valence Block Number:    46 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:14.
+ [ 17:11:14 |   0% ] transition 1 / 9.
+ [ 17:11:15 |  11% ] transition 2 / 9.
+ [ 17:11:15 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:15 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:15 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:15 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:15 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:16 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:16 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:16.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:16.
+ [ 17:11:16 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:16.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    46
+ -----------------------------
+ 
+ 
+ Valence Block Number:    47 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:17.
+ [ 17:11:17 |   0% ] transition 1 / 9.
+ [ 17:11:18 |  11% ] transition 2 / 9.
+ [ 17:11:18 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:18 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:18 |  44% ] transition 5 / 9, remaining: 1 s.
+ [ 17:11:18 |  56% ] transition 6 / 9, remaining: 1 s.
+ [ 17:11:18 |  67% ] transition 7 / 9, remaining: 0 s.
+ [ 17:11:19 |  78% ] transition 8 / 9, remaining: 0 s.
+ [ 17:11:19 |  89% ] transition 9 / 9, remaining: 0 s.
+ Finished calculation of matrix elements at 17:11:19.
+ Elapsed time: 2 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:19.
+ [ 17:11:19 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:19.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    47
+ -----------------------------
+ 
+ 
+ Valence Block Number:    48 of    48 || Pass     1 of     1
+ -----------------------------------------------------------
+ 
+ Using GPU support via OpenACC/OMP-Target implementation
+ Using batch implementation, batch size:    20
+ 
+ Started calculation of matrix elements with 9 transition(s) at 17:11:20.
+ [ 17:11:20 |   0% ] transition 1 / 9.
+ [ 17:11:21 |  11% ] transition 2 / 9.
+ [ 17:11:21 |  22% ] transition 3 / 9, remaining: 1 s.
+ [ 17:11:21 |  33% ] transition 4 / 9, remaining: 1 s.
+ [ 17:11:21 |  44% ] transition 5 / 9, remaining: 1 s.
+ Finished calculation of matrix elements at 17:11:21.
+ Elapsed time: 1 s.
+ 
+ CHI summation GPU algorithm offloading all matrix elements to device.
+ 
+ Started building polarizability matrix with 1 processor(s) at 17:11:21.
+ [ 17:11:21 |   0% ] processor 1 / 1.
+ Finished building polarizability matrix at 17:11:22.
+ Elapsed time: 1 s.
+ 
+ Done With Block Number:    48
+ -----------------------------
+ 
+ q-pt      1: Head of Epsilon         =    1.668988525397921E+002   0.000000000000000E+000
+ q-pt      1: Epsilon(2,2)            =    1.132505690725694E+000  -1.082847129989413E+001

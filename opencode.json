@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "cborg/anthropic/claude-sonnet-high",
+  "provider": {
+    "cborg": {
+      "name": "CBorg API",
+      "npm": "@ai-sdk/openai-compatible",
+      "models": {
+        "anthropic/claude-sonnet-high": {
+          "id": "anthropic/claude-sonnet-high",
+          "name": "Claude Sonnet High",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 131072,
+            "output": 131072
+          }
+        }
+      },
+      "options": {
+        "baseURL": "https://api.cborg.lbl.gov",
+        "apiKey": "{env:CBORG_API_KEY}"
+      }
+    }
+  },
+  "default_agent": "Custodian",
+  "agent": {
+    "custodian_agent": {
+      "description": "Custodian agent that analyzes a hpc job using the tools given to it",
+      "mode": "primary",
+      "model": "cborg/anthropic/claude-sonnet-high",
+      "prompt": "{file:./prompts/custodian_agent.txt}",
+      "temperature": 0.8,
+      "permission": {
+      }
+    }
+  }
+}
