@@ -202,9 +202,6 @@ Open `opencode.json` and confirm that the `baseURL` and model settings match you
   }
 }
 ```
-
-The `{env:CBORG_API_KEY}` placeholder is resolved automatically by OpenCode at runtime using the environment variable you set in Step 2. You do not need to paste your key directly into this file.
-
 ---
 
 ## Step 5: Launch the Agent
