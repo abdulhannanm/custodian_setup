@@ -210,7 +210,7 @@ From the `custodian_setup/` directory, start OpenCode:
 
 ```
 cd custodian_setup
-opencode
+opencode --agent custodian_agent
 ```
 
 OpenCode will automatically detect `opencode.json` in the current directory and load the `custodian_agent` as the default agent with all tools registered.
