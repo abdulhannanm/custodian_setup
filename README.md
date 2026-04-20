@@ -144,9 +144,18 @@ source ~/.bashrc
 
 ---
 
-## Step 3: Verify the Plugin Dependencies
+## Step 3: Install the OpenCode Plugin Dependencies
 
-The `.opencode/` directory ships with `node_modules/` already included, so no install step is required. Do not move or delete the `node_modules/` folder.
+The `.opencode/` directory contains the tool definitions that the agent uses. These tools depend on the `@opencode-ai/plugin` package, which must be installed via Bun.
+
+Navigate into the `.opencode/` directory and install:
+
+```
+cd custodian_setup/.opencode
+bun install
+```
+
+This creates a `node_modules/` folder inside `.opencode/`. Do not move or delete it.
 
 ---
 
@@ -281,7 +290,7 @@ Confirm the variable is exported and not empty. Run `echo $CBORG_API_KEY` in you
 
 ### Bun not found or tool execution fails
 
-Confirm Bun is installed and on your PATH. Run `bun --version`. If the `.opencode/node_modules/` directory is missing or was accidentally deleted, restore it by running `bun install` from inside the `.opencode/` directory.
+Confirm Bun is installed and on your PATH. Run `bun --version`. If the `.opencode/node_modules/` directory is missing, run `bun install` again from inside `.opencode/`.
 
 ### OpenCode does not load the custodian agent
 
