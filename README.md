@@ -38,7 +38,7 @@ python3 --version
 
 ### A CBorg API Key
 
-The agent uses the CBorg API to access Claude Sonnet and the vision model. You must have a valid `CBORG_API_KEY`. If you do not have one, contact your NERSC account administrator.
+The agent uses the CBorg API to access Claude Sonnet and the vision model. You must have a valid `CBORG_API_KEY`. If you do not have one, you can create one if you are a NERSC employee at https://cborg.lbl.gov/
 
 ---
 
@@ -75,16 +75,17 @@ custodian_setup/
 
 The tool files call into the Python backend using a virtual environment. You can place this virtual environment anywhere on your machine. The path you choose will be exported as an environment variable in a later step.
 
-Create a virtual environment in a location of your choice. The example below uses `~/custodian-venv`, but you may use any absolute path.
+Create a virtual environment inside the `~/custodian_setup` or whatever location you want. The example below uses `custodian-venv` inside `custodian_setup/`, but you may use any absolute path.
 
 ```
-python3 -m venv ~/custodian-venv
+cd custodian_setup 
+python3 -m venv custodian-venv
 ```
 
 Activate the environment:
 
 ```
-source ~/custodian-venv/bin/activate
+source custodian-venv/bin/activate
 ```
 
 Install the Python dependencies:
@@ -118,7 +119,7 @@ export CBORG_API_KEY=your_key_here
 The absolute path to the `python3` binary inside the virtual environment you created in Step 1.
 
 ```
-export CUSTODIAN_VENV_PATH=~/custodian-venv/bin/python3
+export CUSTODIAN_VENV_PATH=path_to_venv
 ```
 
 ### CUSTODIAN_APP_PATH
@@ -143,18 +144,9 @@ source ~/.bashrc
 
 ---
 
-## Step 3: Install the OpenCode Plugin Dependencies
+## Step 3: Verify the Plugin Dependencies
 
-The `.opencode/` directory contains the tool definitions that the agent uses. These tools depend on the `@opencode-ai/plugin` package, which must be installed via Bun.
-
-Navigate into the `.opencode/` directory and install:
-
-```
-cd custodian_setup/.opencode
-bun install
-```
-
-This creates a `node_modules/` folder inside `.opencode/`. Do not move or delete it.
+The `.opencode/` directory ships with `node_modules/` already included, so no install step is required. Do not move or delete the `node_modules/` folder.
 
 ---
 
@@ -289,7 +281,7 @@ Confirm the variable is exported and not empty. Run `echo $CBORG_API_KEY` in you
 
 ### Bun not found or tool execution fails
 
-Confirm Bun is installed and on your PATH. Run `bun --version`. If the `.opencode/node_modules/` directory is missing, run `bun install` again from inside `.opencode/`.
+Confirm Bun is installed and on your PATH. Run `bun --version`. If the `.opencode/node_modules/` directory is missing or was accidentally deleted, restore it by running `bun install` from inside the `.opencode/` directory.
 
 ### OpenCode does not load the custodian agent
 
