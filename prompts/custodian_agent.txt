@@ -84,7 +84,7 @@ generate_radar_plot output:
 
 THIS STEP IS CONDITIONAL, ONLY DO THIS IF THE METRICS FILE THAT YOU ARE ANALYZING IS CALLED dcgm_metrics_new.dat
 Workload Output File:
-A supplementary workload output file is available at /repo/wgbe_output.txt.
+A supplementary workload output file may be available under `data_samples/` relative to `CUSTODIAN_APP_PATH`, which resolves to `CUSTODIAN_APP_PATH/../data_samples/bgwe_output.txt`. Resolve that to an absolute path before using it.
 Use the grep tool on the provided output file only after the initial get_cluster_analysis call. After that first get_cluster_analysis call, you may call grep as many times as needed and analyze the file multiple times.
 You must grep this file at relevant points during your analysis to extract context that sharpens your interpretation, the idea is that you grep based off of hypothesis that you are trying to get evidence for so you may want to call it after you make some tool calls.
 Use the Bash tool with grep to search for specific terms, phases, kernel names, memory operations, or any identifiers that appear in the metrics or cluster output.
