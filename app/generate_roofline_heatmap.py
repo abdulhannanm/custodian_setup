@@ -15,6 +15,8 @@ import json
 import math
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 
 
@@ -213,83 +215,75 @@ def render_png(
     roofline_curves: Dict[str, Dict[str, List[float]]],
     gpu_name: str,
 ) -> None:
-    try:
-        import plotly.graph_objects as go
-    except Exception as exc:
-        raise SystemExit(
-            "PNG output requested with forced Plotly renderer, but plotly is not available. "
-            "Install plotly and kaleido."
-        ) from exc
+    render_png_with_matplotlib(
+        png_path=png_path,
+        z_normalized_category=z_normalized_category,
+        x_min=x_min,
+        x_max=x_max,
+        y_min_log10=y_min_log10,
+        y_max_log10=y_max_log10,
+        roofline_curves=roofline_curves,
+        gpu_name=gpu_name,
+    )
 
+
+def render_png_with_matplotlib(
+    png_path: Path,
+    z_normalized_category: List[List[float]],
+    x_min: float,
+    x_max: float,
+    y_min_log10: float,
+    y_max_log10: float,
+    roofline_curves: Dict[str, Dict[str, List[float]]],
+    gpu_name: str,
+) -> None:
+    z_array = np.array(z_normalized_category, dtype=float)
     y_min = 10 ** y_min_log10
     y_max = 10 ** y_max_log10
-    max_display = 4.0
-    fig = go.Figure()
-    fig.add_trace(
-        go.Heatmap(
-            z=z_normalized_category,
-            x=[x_min * ((x_max / x_min) ** ((i + 0.5) / len(z_normalized_category[0]))) for i in range(len(z_normalized_category[0]))],
-            y=[y_min * ((y_max / y_min) ** ((i + 0.5) / len(z_normalized_category))) for i in range(len(z_normalized_category))],
-            colorscale=[
-                [0.0, "#FFFFFF"],
-                [0.2499, "#FFFFFF"],
-                [0.25, "#E8F0FB"],
-                [0.5, "#1F77B4"],
-                [0.5001, "#FFF1E3"],
-                [0.75, "#FF7F0E"],
-                [0.7501, "#FDE9E9"],
-                [1.0, "#D62728"],
-            ],
-            zmin=0,
-            zmax=max_display,
-            colorbar={
-                "title": "Dominant Type (Normalized)",
-                "x": 1.16,
-                "y": 0.5,
-                "len": 0.85,
-                "tickmode": "array",
-                "tickvals": [0, 1.5, 2.5, 3.5],
-                "ticktext": ["None", "FP64", "INT", "Tensor"],
-            },
-            hovertemplate="AI=%{x:.4g}<br>Throughput=%{y:.4g}<br>Category=%{z:.4f}<extra></extra>",
-        )
+
+    cmap = plt.matplotlib.colors.ListedColormap(
+        ["#FFFFFF", "#1F77B4", "#FF7F0E", "#D62728"]
+    )
+    bounds = [0.0, 1.0, 2.0, 3.0, 4.1]
+    norm = plt.matplotlib.colors.BoundaryNorm(bounds, cmap.N)
+
+    fig, ax = plt.subplots(figsize=(12, 8), dpi=100)
+    mesh = ax.pcolormesh(
+        np.geomspace(x_min, x_max, z_array.shape[1] + 1),
+        np.geomspace(y_min, y_max, z_array.shape[0] + 1),
+        np.floor(z_array),
+        cmap=cmap,
+        norm=norm,
+        shading="auto",
     )
 
     curve_colors = {"FP64": "#1F77B4", "FP32": "#2CA02C", "INT": "#FF7F0E", "Tensor": "#D62728"}
     for name, curve in roofline_curves.items():
-        fig.add_trace(
-            go.Scatter(
-                x=curve["x"],
-                y=curve["y"],
-                mode="lines",
-                line={"color": curve_colors.get(name, "#333333"), "width": 2, "dash": "dash"},
-                name=f"{name} Roofline",
-            )
+        ax.plot(
+            curve["x"],
+            curve["y"],
+            color=curve_colors.get(name, "#333333"),
+            linewidth=2,
+            linestyle="--",
+            label=f"{name} Roofline",
         )
 
-    fig.update_layout(
-        title=f"{gpu_name.upper()} Roofline Heatmap from DCGM Samples",
-        xaxis={"title": "Arithmetic Intensity (Ops/Byte)", "type": "log", "range": [math.log10(x_min), math.log10(x_max)]},
-        yaxis={"title": "Throughput (TF/s or TOps/s)", "type": "log", "range": [y_min_log10, y_max_log10]},
-        legend={
-            "orientation": "h",
-            "y": -0.22,
-            "x": 0,
-            "yanchor": "top",
-            "xanchor": "left",
-            "bgcolor": "rgba(255,255,255,0.85)",
-        },
-        margin={"l": 70, "r": 140, "t": 50, "b": 130},
-        width=1200,
-        height=800,
-    )
+    ax.set_xscale("log")
+    ax.set_yscale("log")
+    ax.set_xlim(x_min, x_max)
+    ax.set_ylim(y_min, y_max)
+    ax.set_title(f"{gpu_name.upper()} Roofline Heatmap from DCGM Samples")
+    ax.set_xlabel("Arithmetic Intensity (Ops/Byte)")
+    ax.set_ylabel("Throughput (TF/s or TOps/s)")
+    ax.legend(loc="upper left", bbox_to_anchor=(0, -0.15), ncol=2, framealpha=0.9)
 
-    try:
-        fig.write_image(str(png_path), scale=1)
-    except Exception as exc:
-        raise SystemExit(
-            "PNG export failed with Plotly. Install kaleido (`pip install kaleido`) and retry."
-        ) from exc
+    cbar = fig.colorbar(mesh, ax=ax, ticks=[0.5, 1.5, 2.5, 3.5], pad=0.08)
+    cbar.ax.set_yticklabels(["None", "FP64", "INT", "Tensor"])
+    cbar.set_label("Dominant Type")
+
+    fig.tight_layout()
+    fig.savefig(png_path, dpi=100)
+    plt.close(fig)
 
 
 def main() -> None:

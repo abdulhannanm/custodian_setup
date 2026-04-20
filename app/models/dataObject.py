@@ -6,7 +6,6 @@ import uuid
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import plotly.express as px
 from scipy.signal import medfilt, savgol_filter
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -19,6 +18,28 @@ ROOFLINE_TRIGGER_METRICS = ("INTAC", "TENSO", "FP64A", "FP32A")
 PLOT_WIDTH_PX = 1200
 PLOT_HEIGHT_PX = 800
 PLOT_DPI = 100
+
+
+def save_radar_png_with_matplotlib(
+    output_path: Path,
+    features: List[str],
+    values: List[float],
+    time: int,
+) -> None:
+    angles = np.linspace(0, 2 * np.pi, len(features), endpoint=False).tolist()
+    angles += angles[:1]
+    wrapped_values = values + values[:1]
+
+    fig, ax = plt.subplots(figsize=(PLOT_WIDTH_PX / PLOT_DPI, PLOT_HEIGHT_PX / PLOT_DPI), subplot_kw={"projection": "polar"})
+    ax.plot(angles, wrapped_values, linewidth=3, color="#1f77b4")
+    ax.fill(angles, wrapped_values, color="#1f77b4", alpha=0.25)
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(features)
+    ax.set_title(f"Radar Plot at t={time} (100ms Sampling)", pad=24)
+    ax.grid(True, alpha=0.35)
+    fig.tight_layout()
+    fig.savefig(output_path, dpi=PLOT_DPI)
+    plt.close(fig)
 
 
 def perform_kmeans(perform_df, n_clusters: int) -> pd.DataFrame:
@@ -530,39 +551,15 @@ class dataObject:
             raise ValueError("Non-numeric data encountered in feature columns")
         values = values_array.tolist()
         metric_values = {feature: float(value) for feature, value in zip(features, values)}
-        values_wrapped = values + [values[0]]
-        features_wrapped = features + [features[0]]
-        plot_df = pd.DataFrame(dict(
-            r=values_wrapped,
-            theta=features_wrapped,
-        ))
-        fig = px.line_polar(plot_df, r="r", theta="theta", line_close=True)
-        fig.update_traces(fill="toself", line=dict(width=3), marker=dict(size=10))
-
-        fig.update_layout(
-            title=dict(
-                text=f"Radar Plot at t={time} (100ms Sampling)",
-                font=dict(size=18),
-                x=0.5,
-            ),
-            polar=dict(
-                radialaxis=dict(
-                    visible=True,
-                    tickfont=dict(size=12),
-                ),
-                angularaxis=dict(
-                    tickfont=dict(size=14),
-                ),
-            ),
-            showlegend=False,
-            width=PLOT_WIDTH_PX,
-            height=PLOT_HEIGHT_PX,
-            margin=dict(l=150, r=150, t=100, b=100),
-        )
         unique_tag = uuid.uuid4().hex[:10]
         output_path = Path(__file__).parents[2] / "app" / "plots" / "radar_plot" / f"{self.cleaned_name}_radar_plot_{time}_{unique_tag}.png"
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        fig.write_image(output_path, scale=1)
+        save_radar_png_with_matplotlib(
+            output_path=output_path,
+            features=features,
+            values=values,
+            time=time,
+        )
         self.radar_plot_path = output_path
         return {
             "file_path": str(output_path),
